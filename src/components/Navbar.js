@@ -8,17 +8,17 @@ export default function Navbar(props) {
     
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
-          <a href="/" activeClassName="current" className="navbar-brand">{props.title}</a>
+          <a href="/" className="navbar-brand">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a href="/" activeClassName="current" className="nav-link active" aria-current="page">{props.sec}</a>
+                <a href="/" className="nav-link" aria-current="page">{props.sec}</a>
               </li>
               <li className="nav-item">
-                <a href='/about' activeClassName="current" className="nav-link" >{props.thi}</a>
+                <a href='/about' className="nav-link" >{props.thi}</a>
               </li>
             </ul>
 

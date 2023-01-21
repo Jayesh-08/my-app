@@ -24,10 +24,9 @@ export default function TextForm(props) {
 
     }
     const CopyText = ()=>{
-        let text = document.getElementById("box");
-        text.select();
-        navigator.clipboard.writeText(text.value)
+        navigator.clipboard.writeText(text)
         props.showAlert("Text copied to ClipBoard","success");
+
     }
     const [text, setText] = useState("");
     // text = "ajbdjfb";
@@ -39,19 +38,17 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} id="box" rows="8" onChange={handleOnChange} placeholder={props.placeHolder}></textarea>
                 </div>
-                <button className="btn btn-primary mx-3" onClick={UpClick}>UpperCase</button>
-                <button className="btn btn-primary mx-3" onClick={LoClick}>LowerCase</button>
-                <button className="btn btn-primary mx-3" onClick={ClearText}>Clear Text</button>
-                <button className="btn btn-primary mx-3" onClick={CopyText}>Copy Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={UpClick}>UpperCase</button>
+                <button disabled={text.length===0}className="btn btn-primary mx-2 my-2" onClick={LoClick}>LowerCase</button>
+                <button disabled={text.length===0}className="btn btn-primary mx-2 my-2" onClick={ClearText}>Clear Text</button>
+                <button disabled={text.length===0}className="btn btn-primary mx-2 my-2" onClick={CopyText}>Copy Text</button>
             </div>
             <div className="container my-4">
                 <h1>Your text summary</h1>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} minutes to read</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes to read</p>
                 <h2 className='my-2'>{text.length>0?'Preview':''}</h2>
                 <p>{text}</p>
-                {/* <p>{text.trim().length} characters</p>
-                <p>{text.replace(/\n/g, " ").split(' ').filter(value => value !== "").length} words</p> */}
             </div>
         </>
     )

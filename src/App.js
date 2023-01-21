@@ -9,7 +9,6 @@ import Alert from './components/Alert';
 //   BrowserRouter,
 //   Routes,
 //   Route,
-//   Link,
 // } from "react-router-dom";
 
 function App() {
@@ -46,7 +45,7 @@ function App() {
       <Navbar title="TextUtils" sec="Home" thi="About" mode={mode} toggle={toggleMode} />
       <div className="container my-3">
       <Alert alert={alert} />
-      <TextForm showAlert={showAlert} heading="Enter the text to analyze below" placeHolder="Enter text here" mode={mode} />
+      <TextForm showAlert={showAlert} heading="Enter the text to analyze below" placeHolder="Enter text here" mode={mode} /> 
       <About mode={mode} toggle={toggleMode} />
         {/* <BrowserRouter>
           <Routes>
